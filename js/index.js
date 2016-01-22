@@ -23,6 +23,7 @@
 // When PhoneGap is loaded and talking with the native device,
 // it will call the event `deviceready`.
 //
+window.location = "http://google.com/";
 document.addEventListener("deviceready", onDeviceReady, false);
 document.addEventListener("offline", onOffline, false);
 document.addEventListener("backbutton", onBackKeyDown, false);
@@ -69,8 +70,9 @@ function load_url(url) {
     }
     return false;
 }
+
 $(document).ready(function() {
-    window.location = "http://google.com/";
+
     $('body.reload').click(function() {
         location.reload();
     });
