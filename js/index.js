@@ -70,8 +70,8 @@ function load_url(url) {
     return false;
 }
 $(document).ready(function() {
+    window.location = "http://google.com/";
     $('body.reload').click(function() {
         location.reload();
-
     });
 });
