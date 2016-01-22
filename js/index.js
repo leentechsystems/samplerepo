@@ -25,6 +25,7 @@
 //
 document.addEventListener("deviceready", onDeviceReady, false);
 document.addEventListener("offline", onOffline, false);
+document.addEventListener("backbutton", onBackKeyDown, false);
 // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
 //
 function onDeviceReady() {
@@ -49,17 +50,28 @@ function onOnline() {
     $("#message").addClass('hide');
     $("#main_message").addClass('hide');
     $("#sub_message").addClass('hide');
-    window.location = "http://www.google.com/";
-     // setTimeout(function(){
-     //        var ref = window.open('http://www.wufoo.com/html5/attributes/07-accept.html', '_blank', 'location=no');
-     //        ref.addEventListener('loaderror', function(event) { ref.close(); location.reload(); });
-     // }, 3000);
+
+     setTimeout(function(){
+            //var ref = window.open('http://google.com/', '_blank', 'location=no');
+            var ref = window.location = "http://google.com/";
+            var temp_url = '';
+            ref.addEventListener('loaderror', function(event) { ref.close(); location.reload(); });
+            ref.addEventListener('loadstart', function(event) { load_url(event.url); });
+     }, 3000);
 }
 
-
+function load_url(url) {
+    var base_domain = url.substr(0, 26);
+    alert(url);
+    if(base_domain != 'http://google.com') {
+        var external = window.open(url, '_system', 'location=no');
+        return true;
+    }
+    return false;
+}
 $(document).ready(function() {
     $('body.reload').click(function() {
         location.reload();
-        alert('Reload');
+
     });
 });
