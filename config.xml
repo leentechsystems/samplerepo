@@ -43,8 +43,8 @@
 
     <access origin="*" subdomains="true" />
     <preference name="Fullscreen" value="true" />
-    <preference name="orientation" value="landscape" />
-    <preference name="phonegap-version" value="3.6.3" />
+    <preference name="orientation" value="portrait" />
+    <preference name="phonegap-version" value="cli-5.2.0" />
 
 
     <gap:plugin name="org.apache.cordova.inappbrowser" />
